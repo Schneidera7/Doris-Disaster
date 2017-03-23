@@ -19,9 +19,16 @@ class BTree{ //BTree stands for Binary Tree.
     
     BTree(); //This is to set up to later variables. 
         
-
+/*Insert is a meathod that adds a person's name to the tree. This version assumes that the tree does not contain this name already. 
+Pre: None
+Post: The tree will not be empty. A new node will be created for the lat names.*/
 
 BinTreeNode* Insert(string lastName); 
+    
+/*This code is the helper function for the Insert meathod. It is meant to fin the parent to create
+edges between the parent nodes and the new nodes created. 
+Pre: 
+Post: returns a pointer to a Node that will be linked by an edge. */
     
 BinTreeNode* FindParent(string lastName, BinTreeNode* start);
 
@@ -36,6 +43,11 @@ Pre:None
 Post: A Node will be out put, or an error message. */
 
 BinTreeNode* Search(string lastName);
+    
+/* This method is a helper meathod meant to help find a name if the tree is not empty. 
+Pre: Tree Not empty. 
+Post: returns the node with that name. */
+    
 BinTreeNode* SearchHelper(string lastName, BinTreeNode* start);
 
 /* PCount is a meathod that returns the number of people inserted. 
@@ -56,6 +68,8 @@ Post: Each Node will be printed, unless there is no Nodes. In that case an error
 
 void Print(BinTreeNode* root);
     
+/* These meathods are used to set/get the root becuase it is private.*/
+    
 BinTreeNode* GetRoot(); 
     
 void SetRoot(BinTreeNode* x);
@@ -63,11 +77,10 @@ void SetRoot(BinTreeNode* x);
 int personcount;
     
 int treeSize;
-    private:
-    BinTreeNode* root; //This is the first Node input and is commonly the start.
 
-   // Variables:
-//BinTreeNode* root; //This is the first Node input and is commonly the start. 
+private:
+    
+  BinTreeNode* root; //This is the first Node input and is commonly the start.
 };
 
 #endif
