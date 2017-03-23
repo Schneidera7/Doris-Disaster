@@ -17,30 +17,32 @@ BTree::BTree(){
     root = NULL;
 }
 
-//BTree::~BTree(){}
-
-
-/*Insert is a meathod that adds a person's name to the tree. If the person's last name is already there their first name will be added and the count will increase. If the last name is not in the tree then a new Node will be created and put in a proper location within the tree. 
+/*Insert is a meathod that adds a person's name to the tree. This version assumes that the tree does not contain this name already. 
 Pre: None
-Post: The tree will not be empty. A new node may be created and/or the count will go up.*/
+Post: The tree will not be empty. A new node will be created for the lat names.*/
 
 BinTreeNode* BTree::Insert(string lastName){
     BinTreeNode* temp = new BinTreeNode (lastName,NULL,NULL,NULL,0);
     BinTreeNode* parent = FindParent(lastName, root);
     if(parent != NULL){
-    temp -> setP(parent);
+    temp -> SetP(parent);
     if(parent -> GetLname() > temp -> GetLname()){
-        parent  -> setR(temp);
+        parent  -> SetR(temp);
     }
     else if (parent -> GetLname() < temp -> GetLname()){
-        parent -> setL(temp);}
+        parent -> SetL(temp);}
     }
-    temp -> setCount(temp -> GetCount()+1);
+    temp -> SetCount(temp -> GetCount()+1);
     treeSize++;
     personcount++;
     SetRoot(temp);
     return temp;
 }
+
+/*This code is the helper function for the Insert meathod. It is meant to fin the parent to create
+edges between the parent nodes and the new nodes created. 
+Pre: 
+Post: returns a pointer to a Node that will be linked by an edge. */
 
 BinTreeNode* BTree::FindParent(string lastName, BinTreeNode* start){
     if(start != NULL){
@@ -65,9 +67,9 @@ BinTreeNode* BTree::FindParent(string lastName, BinTreeNode* start){
     return NULL;
 }
 
-/* Remove is a meathod that searches for a given last name in the tree, then if found removes it from the tree. If the name is not found an error message will be printed for the user. 
+/* Remove is a meathod that searches for a given last name in the tree, then reduces the count by one for surviors. 
 Pre: The tree can't be empty. 
-Post: If found the tree will lose a Node and in some cases need to be modified. The Number of Nodes will decrease if found. */
+Post: If found the tree will decrease the number of surviors */
 
 BinTreeNode* BTree::Remove(string lastName){
     BinTreeNode* temp = Search(lastName);
@@ -82,9 +84,9 @@ BinTreeNode* BTree::Remove(string lastName){
     }
 }
 
-/* Search is just like it sounds. This meathod looks through the tree for a certain name contained in the tree. This meathod will return a Node if the last name and first name are in the tree. If not found an error message will be printed for the user. 
-Pre:None
-Post: A Node will be out put, or an error message. */
+/* Search is just like it sounds. This meathod looks through the tree for a certain name contained in the tree.
+Pre: User must input a last name. 
+Post:The count of people with that lasst name will be put out. */
 
 BinTreeNode* BTree::Search(string lastName){
     if (root == NULL){
@@ -93,6 +95,10 @@ BinTreeNode* BTree::Search(string lastName){
     BinTreeNode* temp = SearchHelper(lastName, root);
     return temp;
 }
+
+/* This method is a helper meathod meant to help find a name if the tree is not empty. 
+Pre: Tree Not empty. 
+Post: returns the node with that name. */
 
 BinTreeNode* BTree::SearchHelper(string lastName, BinTreeNode* start){
     if (start -> GetLname() == lastName){
@@ -148,6 +154,7 @@ void BTree::Print(BinTreeNode* start){
     else{cout<<"There are no surviors."<<endl;}
     }
 
+/* These meathods are used to set/get the root becuase it is private.*/
 BinTreeNode* BTree::GetRoot(){
     return root;
 }
