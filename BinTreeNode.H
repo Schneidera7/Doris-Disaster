@@ -14,7 +14,7 @@ class BinTreeNode {
     
     public: 
     
-    BinTreeNode(string lastName, BinTreeNode* rightChild, BinTreeNode* leftChild, BinTreeNode* parentPointer, int count);
+    BinTreeNode(string lastName, BinTreeNode* rightChild, BinTreeNode* leftChild, BinTreeNode* parentPointer, int nodeCount);
     
     void SetLname(string x);
     
