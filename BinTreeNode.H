@@ -14,17 +14,17 @@ class BinTreeNode {
     
     public: 
     
-    BinTreeNode(string lastName, BinTreeNode* rightChild, BinTreeNode* leftChild, BinTreeNode* parent, int count);
+    BinTreeNode(string lastName, BinTreeNode* rightChild, BinTreeNode* leftChild, BinTreeNode* parentPointer, int count);
     
-    void setLname(string x);
+    void SetLname(string x);
     
-    void setR(BinTreeNode* x);
+    void SetR(BinTreeNode* x);
     
-    void setP(BinTreeNode* x);
+    void SetP(BinTreeNode* x);
         
-    void setL(BinTreeNode* x);
+    void SetL(BinTreeNode* x);
     
-    void setCount(int x);
+    void SetCount(int x);
     
     
     int GetCount();
@@ -41,9 +41,9 @@ class BinTreeNode {
     
     string lastName; 
     
-    int NodeCount; // Keeps track of the number of people with this last name. 
+    int nodeCount; // Keeps track of the number of people with this last name. 
     
-    BinTreeNode* parent; //The Node above the current Node. 
+    BinTreeNode* parentPointer; //The Node above the current Node. 
     
     BinTreeNode* rightChild; //The next last name that is entered that comes after the current Node. 
     
