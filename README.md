@@ -3,7 +3,7 @@ Project 2
 Alban Schneider 
 3-23-17
 
-To use this project, start by calling the makefile on all of the files. Oncee done the tester contains
+To use this project, start by calling the makefile on all of the files. Once done the tester contains
 instructions on how to use the interface. 
 This code allows the user to add people to the registered and remove them. Also it can search for a last name
 and return a count for the tree. 
