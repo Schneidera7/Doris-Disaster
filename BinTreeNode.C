@@ -12,16 +12,16 @@ Alban Schneider
 #include <cstring>
 #include <cstdlib>
 
-BinTreeNode::BinTreeNode(string lastName, BinTreeNode* rightChild, BinTreeNode* leftChild, BinTreeNode* parent, int NodeCount){
-    setLname(lastName);
-    setR(rightChild);
-    setL(leftChild);
-    setP(parent);
-    setCount(NodeCount);
+BinTreeNode::BinTreeNode(string lastName, BinTreeNode* rightChild, BinTreeNode* leftChild, BinTreeNode* parentPointer, int nodeCount){
+    SetLname(lastName);
+    SetR(rightChild);
+    SetL(leftChild);
+    SetP(parent);
+    SetCount(nodeCount);
 }
 
 int BinTreeNode::GetCount(){
-    return NodeCount;
+    return nodeCount;
 }
 
 string BinTreeNode::GetLname(){
@@ -44,22 +44,22 @@ BinTreeNode* BinTreeNode::GetP(){
 //BinTreeNode::~BinTreeNode(){
 //}
 
-void BinTreeNode::setLname(string x){
+void BinTreeNode::SetLname(string x){
     lastName = x;
 }
 
-void BinTreeNode::setCount(int x){
-    NodeCount = x;
+void BinTreeNode::SetCount(int x){
+    nodeCount = x;
 }
 
-void BinTreeNode::setR(BinTreeNode* x){
+void BinTreeNode::SetR(BinTreeNode* x){
     rightChild = x;
 }
 
-void BinTreeNode::setL(BinTreeNode* x){
+void BinTreeNode::SetL(BinTreeNode* x){
     leftChild = x;
 }
 
-void BinTreeNode::setP(BinTreeNode* x){
-    parent = x;
+void BinTreeNode::SetP(BinTreeNode* x){
+    parentPointer = x;
 }
